@@ -6,35 +6,35 @@
 (function() {
     'use strict';
     
-    // Instagram-style images with better content
+    // Instagram-style images - using reliable placeholder service
     const instagramPosts = [
         {
-            image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=400&fit=crop&crop=center',
+            image: 'https://picsum.photos/400/400?random=1',
             alt: 'Ungdomsaktivitet',
             caption: 'Tillsammans skapar vi framtiden! 🌟'
         },
         {
-            image: 'https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=400&h=400&fit=crop&crop=center',
+            image: 'https://picsum.photos/400/400?random=2',
             alt: 'Sport och gemenskap',
             caption: 'Sport och gemenskap för alla ⚽'
         },
         {
-            image: 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=400&h=400&fit=crop&crop=center',
+            image: 'https://picsum.photos/400/400?random=3',
             alt: 'Kreativa workshops',
             caption: 'Kreativa workshops 🎨'
         },
         {
-            image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&h=400&fit=crop&crop=center',
+            image: 'https://picsum.photos/400/400?random=4',
             alt: 'Utbildning',
             caption: 'Utbildning och utveckling 📚'
         },
         {
-            image: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400&h=400&fit=crop&crop=center',
+            image: 'https://picsum.photos/400/400?random=5',
             alt: 'Community event',
             caption: 'Community events 🤝'
         },
         {
-            image: 'https://images.unsplash.com/photo-1515169067868-5387ec356754?w=400&h=400&fit=crop&crop=center',
+            image: 'https://picsum.photos/400/400?random=6',
             alt: 'Av unga för unga',
             caption: 'Av unga för unga 💫'
         }
@@ -67,7 +67,7 @@
             col.innerHTML = `
                 <div class="gallery-item fade-in-up" style="animation-delay: ${delay}s;">
                     <img src="${post.image}" alt="${post.alt}" class="img-fluid" 
-                         onerror="this.src='https://via.placeholder.com/400x400/D4AF37/000000?text=${encodeURIComponent(post.alt)}'"
+                         onerror="this.onerror=null; if(window.createCanvasImages) { const imgs=window.createCanvasImages(); this.src=imgs[${index}] || 'https://via.placeholder.com/400x400/D4AF37/000000?text=${encodeURIComponent(post.alt)}'; } else { this.src='https://via.placeholder.com/400x400/D4AF37/000000?text=${encodeURIComponent(post.alt)}'; }"
                          onload="this.style.opacity=1" 
                          style="opacity:0;transition:opacity 0.5s ease;">
                     <div class="gallery-overlay">

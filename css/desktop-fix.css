@@ -28,6 +28,7 @@
         margin-top: 0 !important;
         border-radius: 0 !important;
         padding: 0 !important;
+        justify-content: flex-end !important;
     }
     
     .navbar-nav {
@@ -36,6 +37,7 @@
         padding: 0 !important;
         margin: 0 !important;
         width: auto !important;
+        margin-left: auto !important;
     }
     
     .navbar-nav .nav-item {
