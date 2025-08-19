@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>M.S Ungdomsförening - Av unga för unga</title>
+<!-- CDN Links -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800&amp;family=Titillium+Web:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.theme.default.min.css" rel="stylesheet"/>
+<!-- Custom CSS -->
+<link href="css/main.min.css" rel="stylesheet"/>
+<meta content="Vi hjälper ungdomar i Nyköping att växa och utvecklas genom gemenskap, stöd och meningsfulla aktiviteter. Tillsammans skapar vi möjligheter för framtiden." name="description"/><style>
+*{box-sizing:border-box}
+img{max-width:100%;height:auto}
+</style></head>
+<body>
+<!-- Preloader -->
+<div class="preloader" id="preloader">
+<div class="spinner"></div>
+</div>
+<!-- Header -->
+<nav class="navbar navbar-expand-lg header">
+<div class="container">
+<a class="navbar-brand" href="#home">
+<div class="logo-icon">
+<img alt="M.S Ungdomsförening Logo" decoding="async" loading="lazy" src="image/logo.png"/>
+</div>
+</a>
+<button class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item">
+<a class="nav-link active" href="index.html">Hem</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="about.html">Om Oss</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="services.html">Aktiviteter</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="team.html">Styrelse</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="testimonials.html">Berättelser</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="contact.html">Kontakt</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="hero" id="home">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-lg-8">
+<div class="hero-content">
+<h1 class="fade-in-up">
+<span class="highlight">Av unga</span> för unga
+                        </h1>
+<p class="fade-in-up" style="animation-delay: 0.2s;">
+                            Vi hjälper ungdomar i Nyköping att växa och utvecklas genom gemenskap, stöd och meningsfulla aktiviteter. Tillsammans skapar vi möjligheter för framtiden.
+                        </p>
+<div class="fade-in-up" style="animation-delay: 0.4s;">
+<a class="btn btn-primary" href="contact.html">Bli Medlem</a>
+<a class="btn btn-outline-light" href="services.html">Våra Aktiviteter</a>
+</div>
+</div>
+</div>
+<div class="col-lg-4">
+<div class="hero-logo fade-in-up" style="animation-delay: 0.6s;">
+<img alt="M.S Ungdomsförening Logo" class="img-fluid" decoding="async" loading="lazy" src="image/logo2.png"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<a class="btn btn-primary btn-lg" href="contact.html">Kontakta oss</a>
+<p class="footer-copyright">© 2025 M.S Ungdomsförening. Alla rättigheter förbehållna.</p>
+</div>
+</footer>
+<!-- Scripts -->
+<script defer="True" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script defer="True" src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script defer="True" src="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/owl.carousel.min.js"></script>
+<script>
+        // Preloader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('fade-out');
+                setTimeout(() => {
+                    document.getElementById('preloader').style.display = 'none';
+                }, 500);
+            }, 1000);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active navigation link
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Counter animation
+        const counterElements = document.querySelectorAll('.counter');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                    entry.target.classList.add('counted');
+                    const target = parseInt(entry.target.getAttribute('data-target'));
+                    const counter = entry.target;
+                    let count = 0;
+                    const increment = target / 100;
+                    
+                    const updateCount = () => {
+                        if (count < target) {
+                            count += increment;
+                            counter.textContent = Math.ceil(count);
+                            setTimeout(updateCount, 20);
+                        } else {
+                            counter.textContent = target + '+';
+                        }
+                    };
+                    updateCount();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counterElements.forEach(counter => {
+            counterObserver.observe(counter);
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Tack för ditt meddelande! Vi kommer att kontakta dig så snart som möjligt.');
+            e.target.reset();
+        });
+
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
+<!-- Core Libraries -->
+<script defer="True" src="js/jquery-latest.js"></script>
+
+<!-- Animation Libraries -->
+<script defer="True" src="js/gsap.js"></script>
+<script defer="True" src="js/ScrollTrigger.js"></script>
+<script defer="True" src="js/SplitText.js"></script>
+
+<script defer="True" src="js/wow.js"></script>
+<!-- UI Components -->
+
+<script defer="True" src="js/jquery.magnific-popup.min.js"></script>
+<script defer="True" src="js/isotope.js"></script>
+<!-- Form & Utilities -->
+<script defer="True" src="js/jquery.validate.min.js"></script>
+<script defer="True" src="js/jquery.appear.min.js"></script>
+<script defer="True" src="js/odometer.min.js"></script>
+<!-- Custom JavaScript -->
+<script defer="True" src="js/main.js"></script>
+</body>
+</html>
+<script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDu0JW4JomBfE4mE99DVoHzGADiSg%2BKxMAVnLHVQptV4Tf7YjAovXDSsT0Mx%2FMhEu8V%2BbjZes3ZkY1mBdAmcT0LGoC7nVImT4BXHqUEIc4Er1RyorIT%2BLSDej8uo6LhzydJ5Y3%2BDzdm8jhJfIpjh0Mn9jM50CRsR75ft5j7MmWxJ0TKJ%2B7nzrmHflMcqh9w6lnB%2FyaiaJQyjT3MjjkmEMTBIaxJM72%2Fm%2BZ4sQ%2BCqQGDN5Q91Alfjeb%2BCkUKwNOoos7mCtdj5X%2BdCcTz0mHHHhy4L9ufSQTuJBe%2BiHpnFzuQDSbbNxZNnmlLeccKzXagulN%2Fr0b%2Bm5H8tpYLtHRbe6Fw1dRzC1F7zT2P%2BVfpZpGiCVAime9smfnCK2bgZ9pDU41P13OjAuNtynVma8T2%2FO2ZT4zriPXKVib0jGR5FGQVUqAPzHnPdlgRgRqr%2BkBOmXQkrGuYtBhAzRPcGdtsHcvezREb2qtRhMdqSWH2FfU75qxc1bbF7DXpRKPqrCWG2%2F3PkBg4nLRJ2a5L2OP12gPrw%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDu0JW4JomBfE4mE99DVoHzGADiSg+KxMAVnLHVQptV4Tf7YjAovXDSsT0Mx/MhEu8V+bjZes3ZkY1mBdAmcT0LGoC7nVImT4BXHqUEIc4Er1RyorIT+LSDej8uo6LhzydJ5Y3+Dzdm8jhJfIpjh0Mn9jM50CRsR75ft5j7MmWxJ0TKJ+7nzrmHflMcqh9w6lnB/yaiaJQyjT3MjjkmEMTBIaxJM72/m+Z4sQ+CqQGDN5Q91Alfjeb+CkUKwNOoos7mCtdj5X+dCcTz0mHHHhy4L9ufSQTuJBe+iHpnFzuQDSbbNxZNnmlLeccKzXagulN/r0b+m5H8tpYLtHRbe6Fw1dRzC1F7zT2P+VfpZpGiCVAime9smfnCK2bgZ9pDU41P13OjAuNtynVma8T2/O2ZT4zriPXKVib0jGR5FGQVUqAPzHnPdlgRgRqr+kBOmXQkrGuYtBhAzRPcGdtsHcvezREb2qtRhMdqSWH2FfU75qxc1bbF7DXpRKPqrCWG2/3PkBg4nLRJ2a5L2OP12gPrw=";
+    </script>
+<script defer="True" id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
