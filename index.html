@@ -15,6 +15,7 @@
 <!-- Custom CSS -->
 <link href="css/main.min.css" rel="stylesheet"/>
 <link href="css/main-mobile-fix.css" rel="stylesheet"/>
+<link href="css/logo-fix.css" rel="stylesheet"/>
 <meta content="Vi hjälper ungdomar i Nyköping att växa och utvecklas genom gemenskap, stöd och meningsfulla aktiviteter. Tillsammans skapar vi möjligheter för framtiden." name="description"/>
 <style>
 *{box-sizing:border-box}
@@ -27,14 +28,24 @@ html, body {
     overflow-x: hidden !important;
     -webkit-overflow-scrolling: touch;
 }
+/* CRITICAL: Add padding for fixed header */
+body {
+    padding-top: 80px !important;
+}
 /* Prevent zoom on form inputs */
 input, select, textarea {
     font-size: 16px !important;
 }
 /* Fix for iOS Safari address bar */
 .hero {
-    min-height: 100vh !important;
+    min-height: calc(100vh - 80px) !important;
     min-height: -webkit-fill-available !important;
+    display: flex !important;
+    align-items: center !important;
+    background: linear-gradient(rgba(44, 44, 44, 0.7), rgba(26, 26, 26, 0.7)), url('image/optimized/hero-background.webp') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
 }
 html {
     height: -webkit-fill-available !important;
@@ -44,10 +55,22 @@ html {
     padding-left: 15px !important;
     padding-right: 15px !important;
 }
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px !important;
+    }
+    .hero {
+        min-height: calc(100vh - 70px) !important;
+        background-attachment: scroll !important;
+    }
+}
 @media (max-width: 575.98px) {
     .container, .container-fluid {
         padding-left: 10px !important;
         padding-right: 10px !important;
+    }
+    body {
+        padding-top: 65px !important;
     }
 }
 </style></head>
