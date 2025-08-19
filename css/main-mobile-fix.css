@@ -1,0 +1,607 @@
+/* М.С Ungdomsförening - Mobile Fixed CSS */
+
+/* Root Variables */
+:root {
+    --ms-font: "Archivo", sans-serif;
+    --ms-font-two: "Titillium Web", sans-serif;
+    --ms-gold: #D4AF37;
+    --ms-gold-light: #FFD700;
+    --ms-gold-dark: #B8860B;
+    --ms-white: #ffffff;
+    --ms-black: #2C2C2C;
+    --ms-gray: #6C757D;
+    --ms-border-radius: 20px;
+    --ms-dark: #333;
+}
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--ms-font);
+    line-height: 1.6;
+    color: var(--ms-black);
+    overflow-x: hidden;
+    padding-top: 80px; /* Add padding to prevent header overlap */
+}
+
+/* Header Fixes */
+.header {
+    background: var(--ms-dark);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    min-height: 70px; /* Ensure minimum height */
+    padding: 8px 0; /* Add padding to header */
+}
+
+.header.scrolled {
+    background: rgba(51, 51, 51, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+/* Navbar Brand Logo Fixes */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0;
+}
+
+.navbar-brand .logo-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand .logo-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.navbar-brand:hover .logo-icon {
+    transform: scale(1.05);
+}
+
+/* Mobile Responsive Header */
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px; /* Reduce padding for mobile */
+    }
+    
+    .header {
+        min-height: 60px;
+        padding: 5px 0;
+    }
+    
+    .navbar-brand .logo-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .navbar-toggler {
+        border: none;
+        padding: 0.25rem 0.5rem;
+        margin-right: 10px;
+    }
+    
+    .navbar-toggler:focus {
+        box-shadow: none;
+    }
+    
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        width: 24px;
+        height: 24px;
+    }
+    
+    .navbar-collapse {
+        background: var(--ms-dark);
+        margin-top: 10px;
+        border-radius: 10px;
+        padding: 15px;
+    }
+    
+    .navbar-nav .nav-link {
+        color: var(--ms-white) !important;
+        font-weight: 500;
+        margin: 5px 0;
+        padding: 12px 15px !important;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+    
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+        color: var(--ms-gold) !important;
+        background: rgba(212, 175, 55, 0.1);
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-top: 65px;
+    }
+    
+    .header {
+        min-height: 55px;
+        padding: 3px 0;
+    }
+    
+    .navbar-brand .logo-icon {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* Desktop Navigation */
+@media (min-width: 769px) {
+    .navbar-toggler {
+        display: none;
+    }
+    
+    .navbar-nav .nav-link {
+        color: var(--ms-white) !important;
+        font-weight: 500;
+        margin: 0 10px;
+        padding: 10px 0 !important;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+    
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+        color: var(--ms-gold) !important;
+    }
+    
+    .navbar-nav .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 50%;
+        background: var(--ms-gold);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+    }
+    
+    .navbar-nav .nav-link:hover::after,
+    .navbar-nav .nav-link.active::after {
+        width: 100%;
+    }
+}
+
+/* Hero Section Fixes */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(rgba(44, 44, 44, 0.7), rgba(26, 26, 26, 0.7)), url('../image/hero-background.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 0; /* Remove margin that could cause white space */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23D4AF37" fill-opacity="0.05" points="0,0 1000,300 1000,1000 0,700"/></svg>');
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-logo {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+}
+
+.hero-logo img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+    transition: all 0.5s ease;
+}
+
+.hero-logo img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 30px 60px rgba(212, 175, 55, 0.5);
+}
+
+/* Mobile Hero Fixes */
+@media (max-width: 768px) {
+    .hero {
+        background-attachment: scroll; /* Fix for mobile background */
+        min-height: calc(100vh - 70px); /* Account for header */
+        padding-top: 20px;
+    }
+    
+    .hero-logo {
+        margin-top: 1rem;
+        padding: 1rem;
+    }
+    
+    .hero-logo img {
+        max-width: 200px;
+    }
+    
+    .hero h1 {
+        font-size: clamp(2rem, 6vw, 3rem);
+        margin-bottom: 1rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .btn-primary,
+    .btn-outline-light {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+        padding: 15px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        min-height: calc(100vh - 65px);
+        padding-top: 15px;
+    }
+    
+    .hero h1 {
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .hero-logo img {
+        max-width: 180px;
+    }
+}
+
+/* General Typography */
+.hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    color: var(--ms-white);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero .highlight {
+    color: var(--ms-gold-light);
+    position: relative;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+    max-width: 600px;
+}
+
+/* Button Styles */
+.btn-primary {
+    background: linear-gradient(135deg, var(--ms-gold), var(--ms-gold-light));
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    margin: 0 10px 10px 0;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+}
+
+.btn-outline-light {
+    border: 2px solid var(--ms-white);
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    margin: 0 10px 10px 0;
+}
+
+.btn-outline-light:hover {
+    background: var(--ms-white);
+    color: var(--ms-black);
+    transform: translateY(-3px);
+}
+
+/* Footer */
+.footer {
+    padding: 40px 0;
+    background: var(--ms-dark);
+    color: var(--ms-white);
+    text-align: center;
+    margin-top: 0;
+}
+
+.footer .btn {
+    margin-bottom: 20px;
+}
+
+.footer-copyright {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Mobile Footer */
+@media (max-width: 768px) {
+    .footer {
+        padding: 30px 0;
+    }
+}
+
+/* Preloader */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--ms-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+.preloader.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--ms-gold);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Animation */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Fix for potential white space issues */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Remove any unwanted margins/padding that could cause white space */
+section {
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure full width sections */
+.hero,
+.footer {
+    width: 100%;
+    max-width: none;
+}
+
+/* Additional Mobile Responsiveness Improvements */
+
+/* Touch-friendly buttons and links */
+@media (max-width: 768px) {
+    .btn {
+        min-height: 44px; /* iOS minimum touch target */
+        min-width: 44px;
+    }
+    
+    .nav-link {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+    
+    /* Improve form elements */
+    .form-control {
+        min-height: 44px;
+        font-size: 16px; /* Prevent zoom on iOS */
+    }
+    
+    /* Better spacing for mobile */
+    .section {
+        padding: 40px 0;
+    }
+    
+    .section-title {
+        margin-bottom: 30px;
+    }
+    
+    .section-title h2 {
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
+    }
+    
+    /* Mobile typography improvements */
+    h1, h2, h3, h4, h5, h6 {
+        line-height: 1.3 !important;
+        word-wrap: break-word;
+    }
+    
+    p {
+        line-height: 1.6 !important;
+        word-wrap: break-word;
+    }
+    
+    /* Prevent horizontal scroll */
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .col, [class*="col-"] {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    /* Image responsiveness */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+    
+    /* Cards and components */
+    .card, .about-card, .service-card, .team-card, .testimonial-card, .contact-card {
+        margin-bottom: 20px;
+        border-radius: 15px;
+    }
+    
+    /* Navbar improvements */
+    .navbar-nav {
+        width: 100%;
+    }
+    
+    .navbar-nav .nav-item {
+        width: 100%;
+    }
+    
+    .navbar-nav .nav-link {
+        text-align: center;
+        width: 100%;
+        padding: 15px !important;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    .section {
+        padding: 30px 0;
+    }
+    
+    .section-title h2 {
+        font-size: clamp(1.5rem, 8vw, 2rem);
+    }
+    
+    .btn {
+        font-size: 14px;
+        padding: 12px 20px;
+    }
+    
+    /* Footer improvements */
+    .footer {
+        padding: 25px 0;
+    }
+    
+    .footer .btn {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}
+
+/* Landscape orientation fixes for mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        min-height: 100vh;
+        padding-top: 60px;
+    }
+    
+    .hero h1 {
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .hero-logo img {
+        max-width: 150px;
+    }
+}
+
+/* Fix for very wide screens */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+/* Performance improvements for mobile */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Dark mode support hint */
+@media (prefers-color-scheme: dark) {
+    /* Future dark mode support can be added here */
+}
