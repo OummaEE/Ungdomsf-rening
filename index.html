@@ -121,6 +121,18 @@ html {
     background: #fff;
 }
 
+.instagram-loading {
+    text-align: center;
+    padding: 40px 0;
+    color: #6c757d;
+}
+
+.instagram-loading .spinner-border {
+    width: 3rem;
+    height: 3rem;
+    color: #D4AF37 !important;
+}
+
 .gallery-item {
     position: relative;
     overflow: hidden;
@@ -168,8 +180,8 @@ html {
 /* About Section Styles */
 .about-section {
     padding: 80px 0;
-    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
-    color: white;
+    background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+    color: #000;
 }
 
 .stats-row {
@@ -185,7 +197,7 @@ html {
 .stat-number {
     font-size: 2.5rem;
     font-weight: bold;
-    color: #ffd700;
+    color: #000;
 }
 
 .stat-label {
@@ -272,7 +284,7 @@ html {
 <div class="container">
 <a class="navbar-brand" href="#home">
 <div class="logo-icon">
-<img alt="AVUNGA FÖR UNGA Logo" decoding="async" loading="lazy" src="image/optimized/logo.webp"/>
+<img alt="M.S Ungdomsförening Logo" decoding="async" loading="lazy" src="image/logo.png"/>
 </div>
 </a>
 <button class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
@@ -322,7 +334,7 @@ html {
 </div>
 <div class="col-lg-4">
 <div class="hero-logo fade-in-up" style="animation-delay: 0.6s;">
-<img alt="AVUNGA FÖR UNGA Logo" class="img-fluid" decoding="async" loading="lazy" src="image/optimized/logo2.webp"/>
+<img alt="M.S Ungdomsförening Logo" class="img-fluid" decoding="async" loading="lazy" src="image/logo.png"/>
 </div>
 </div>
 </div>
@@ -336,21 +348,13 @@ html {
 <h2 class="fade-in-up">Följ oss på sociala medier</h2>
 <p class="fade-in-up" style="animation-delay: 0.2s;">Håll koll på våra senaste aktiviteter och uppdateringar</p>
 <div class="social-links fade-in-up" style="animation-delay: 0.4s;">
-<a href="https://www.facebook.com/avungaforunga" class="social-link" target="_blank" rel="noopener">
+<a href="https://www.facebook.com/profile.php?id=100075590843002" class="social-link" target="_blank" rel="noopener">
 <i class="fab fa-facebook-f"></i>
 <span>Facebook</span>
 </a>
-<a href="https://www.instagram.com/avunga_forunga" class="social-link" target="_blank" rel="noopener">
+<a href="https://www.instagram.com/m.sungdomsforening/" class="social-link" target="_blank" rel="noopener">
 <i class="fab fa-instagram"></i>
 <span>Instagram</span>
-</a>
-<a href="https://www.tiktok.com/@avungaforunga" class="social-link" target="_blank" rel="noopener">
-<i class="fab fa-tiktok"></i>
-<span>TikTok</span>
-</a>
-<a href="https://www.youtube.com/@avungaforunga" class="social-link" target="_blank" rel="noopener">
-<i class="fab fa-youtube"></i>
-<span>YouTube</span>
 </a>
 </div>
 </div>
@@ -359,85 +363,24 @@ html {
 </section>
 
 <!-- Instagram Gallery Section -->
-<section class="instagram-gallery">
+<section class="instagram-gallery" id="instagram-gallery-section">
 <div class="container">
 <div class="row">
 <div class="col-lg-12 text-center mb-5">
-<h2 class="fade-in-up">Instagram Galleri</h2>
-<p class="fade-in-up" style="animation-delay: 0.2s;">Se våra senaste bilder och aktiviteter från Instagram</p>
+<div class="instagram-loading" style="display: block;">
+<div class="spinner-border text-primary" role="status">
+<span class="visually-hidden">Laddar Instagram...</span>
+</div>
+<p class="mt-2">Laddar bilder från Instagram...</p>
+</div>
 </div>
 </div>
 <div class="row gallery-grid">
-<div class="col-lg-4 col-md-6 mb-4">
-<div class="gallery-item fade-in-up">
-<img src="https://via.placeholder.com/400x400/FFD700/000000?text=AVUNGA+Event" alt="AVUNGA Event" class="img-fluid">
-<div class="gallery-overlay">
-<a href="https://www.instagram.com/p/example1" target="_blank" class="gallery-link">
-<i class="fab fa-instagram"></i>
-<span>Se på Instagram</span>
-</a>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-6 mb-4">
-<div class="gallery-item fade-in-up" style="animation-delay: 0.2s;">
-<img src="https://via.placeholder.com/400x400/FFD700/000000?text=Ungdomsaktivitet" alt="Ungdomsaktivitet" class="img-fluid">
-<div class="gallery-overlay">
-<a href="https://www.instagram.com/p/example2" target="_blank" class="gallery-link">
-<i class="fab fa-instagram"></i>
-<span>Se på Instagram</span>
-</a>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-6 mb-4">
-<div class="gallery-item fade-in-up" style="animation-delay: 0.4s;">
-<img src="https://via.placeholder.com/400x400/FFD700/000000?text=Gemenskap" alt="Gemenskap" class="img-fluid">
-<div class="gallery-overlay">
-<a href="https://www.instagram.com/p/example3" target="_blank" class="gallery-link">
-<i class="fab fa-instagram"></i>
-<span>Se på Instagram</span>
-</a>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-6 mb-4">
-<div class="gallery-item fade-in-up" style="animation-delay: 0.6s;">
-<img src="https://via.placeholder.com/400x400/FFD700/000000?text=Sport+Event" alt="Sport Event" class="img-fluid">
-<div class="gallery-overlay">
-<a href="https://www.instagram.com/p/example4" target="_blank" class="gallery-link">
-<i class="fab fa-instagram"></i>
-<span>Se på Instagram</span>
-</a>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-6 mb-4">
-<div class="gallery-item fade-in-up" style="animation-delay: 0.8s;">
-<img src="https://via.placeholder.com/400x400/FFD700/000000?text=Utbildning" alt="Utbildning" class="img-fluid">
-<div class="gallery-overlay">
-<a href="https://www.instagram.com/p/example5" target="_blank" class="gallery-link">
-<i class="fab fa-instagram"></i>
-<span>Se på Instagram</span>
-</a>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-6 mb-4">
-<div class="gallery-item fade-in-up" style="animation-delay: 1.0s;">
-<img src="https://via.placeholder.com/400x400/FFD700/000000?text=Kreativitet" alt="Kreativitet" class="img-fluid">
-<div class="gallery-overlay">
-<a href="https://www.instagram.com/p/example6" target="_blank" class="gallery-link">
-<i class="fab fa-instagram"></i>
-<span>Se på Instagram</span>
-</a>
-</div>
-</div>
-</div>
+<!-- Instagram posts will be loaded here by JavaScript -->
 </div>
 <div class="row">
 <div class="col-12 text-center mt-4">
-<a href="https://www.instagram.com/avunga_forunga" class="btn btn-outline-primary btn-lg" target="_blank" rel="noopener">
+<a href="https://www.instagram.com/m.sungdomsforening/" class="btn btn-outline-primary btn-lg" target="_blank" rel="noopener">
 <i class="fab fa-instagram me-2"></i>Följ oss på Instagram
 </a>
 </div>
@@ -473,7 +416,7 @@ M.S Ungdomsförening är en ideell organisation som arbetar för att stödja ung
 </div>
 <div class="col-lg-6">
 <div class="about-image fade-in-up" style="animation-delay: 0.6s;">
-<img src="image/optimized/logo.webp" alt="AVUNGA För Unga" class="img-fluid">
+<img src="image/logo.png" alt="M.S Ungdomsförening" class="img-fluid">
 </div>
 </div>
 </div>
@@ -486,7 +429,7 @@ M.S Ungdomsförening är en ideell organisation som arbetar för att stödja ung
 <div class="row">
 <div class="col-lg-4">
 <div class="footer-logo">
-<img src="image/optimized/logo.webp" alt="AVUNGA Logo" class="footer-logo-img">
+<img src="image/logo.png" alt="M.S Ungdomsförening Logo" class="footer-logo-img">
 <p class="mt-3">Av unga för unga - tillsammans skapar vi möjligheter för framtiden.</p>
 </div>
 </div>
@@ -499,10 +442,8 @@ M.S Ungdomsförening är en ideell organisation som arbetar för att stödja ung
 <div class="col-lg-4">
 <h5>Följ oss</h5>
 <div class="footer-social">
-<a href="https://www.facebook.com/avungaforunga" target="_blank"><i class="fab fa-facebook-f"></i></a>
-<a href="https://www.instagram.com/avunga_forunga" target="_blank"><i class="fab fa-instagram"></i></a>
-<a href="https://www.tiktok.com/@avungaforunga" target="_blank"><i class="fab fa-tiktok"></i></a>
-<a href="https://www.youtube.com/@avungaforunga" target="_blank"><i class="fab fa-youtube"></i></a>
+<a href="https://www.facebook.com/profile.php?id=100075590843002" target="_blank"><i class="fab fa-facebook-f"></i></a>
+<a href="https://www.instagram.com/m.sungdomsforening/" target="_blank"><i class="fab fa-instagram"></i></a>
 </div>
 </div>
 </div>
@@ -653,6 +594,9 @@ M.S Ungdomsförening är en ideell organisation som arbetar för att stödja ung
 <script defer="True" src="js/jquery.validate.min.js"></script>
 <script defer="True" src="js/jquery.appear.min.js"></script>
 <script defer="True" src="js/odometer.min.js"></script>
+<!-- Instagram Feed -->
+<script defer="True" src="js/create-local-images.js"></script>
+<script defer="True" src="js/simple-instagram.js"></script>
 <!-- Custom JavaScript -->
 <script defer="True" src="js/main.js"></script>
 </body>

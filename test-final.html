@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Test Final - Navigation & Instagram</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link href="css/desktop-fix.css" rel="stylesheet"/>
+    <style>
+        body { padding-top: 80px; }
+        .header {
+            background: #333;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 10px 0;
+        }
+        .navbar-brand {
+            color: #FFD700 !important;
+            font-weight: bold;
+        }
+        .nav-link {
+            color: white !important;
+            margin: 0 10px;
+        }
+        .nav-link:hover {
+            color: #FFD700 !important;
+        }
+        .test-section {
+            padding: 40px 0;
+            margin: 20px 0;
+            border: 2px dashed #ccc;
+            text-align: center;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,123,255,0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        .gallery-link {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Test Header -->
+    <nav class="navbar navbar-expand-lg header">
+        <div class="container">
+            <a class="navbar-brand" href="#home">M.S Ungdomsförening</a>
+            <button class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Hem</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Om Oss</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Aktiviteter</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Kontakt</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Navigation Test -->
+        <div class="test-section">
+            <h2>🧪 Navigation Test</h2>
+            <p><strong>Expected:</strong> Menu items should be aligned to the RIGHT side of the header</p>
+            <p><strong>Status:</strong> <span id="nav-status">Testing...</span></p>
+        </div>
+
+        <!-- Instagram Gallery Test -->
+        <div class="test-section">
+            <h2>📸 Instagram Gallery Test</h2>
+            <p><strong>Expected:</strong> 6 images should load (either external or fallback)</p>
+            <div class="row gallery-grid" id="test-gallery">
+                <!-- Images will be loaded here -->
+            </div>
+            <p><strong>Status:</strong> <span id="gallery-status">Loading...</span></p>
+        </div>
+
+        <!-- Manual Test -->
+        <div class="test-section">
+            <h2>🎯 Manual Canvas Test</h2>
+            <p>If external images fail, these are locally generated:</p>
+            <div class="row" id="canvas-test">
+                <!-- Canvas images will be generated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/create-local-images.js"></script>
+    
+    <script>
+        // Test navigation alignment
+        function testNavigation() {
+            setTimeout(() => {
+                const navbar = document.querySelector('.navbar-nav');
+                const container = document.querySelector('.navbar .container');
+                
+                if (navbar && container) {
+                    const navbarRect = navbar.getBoundingClientRect();
+                    const containerRect = container.getBoundingClientRect();
+                    
+                    // Check if navbar is positioned to the right
+                    const isRightAligned = navbarRect.right >= (containerRect.right - 50); // 50px tolerance
+                    
+                    document.getElementById('nav-status').innerHTML = isRightAligned 
+                        ? '<span style="color: green;">✅ RIGHT ALIGNED</span>'
+                        : '<span style="color: red;">❌ LEFT ALIGNED</span>';
+                }
+            }, 1000);
+        }
+
+        // Test Instagram gallery
+        const testPosts = [
+            'https://picsum.photos/300/300?random=1',
+            'https://picsum.photos/300/300?random=2',
+            'https://picsum.photos/300/300?random=3',
+            'https://picsum.photos/300/300?random=4',
+            'https://picsum.photos/300/300?random=5',
+            'https://picsum.photos/300/300?random=6'
+        ];
+
+        function testInstagramGallery() {
+            const gallery = document.getElementById('test-gallery');
+            let loadedCount = 0;
+            let failedCount = 0;
+
+            testPosts.forEach((src, index) => {
+                const col = document.createElement('div');
+                col.className = 'col-lg-4 col-md-6 mb-3';
+                
+                const img = document.createElement('img');
+                img.src = src;
+                img.className = 'img-fluid';
+                img.style.maxHeight = '200px';
+                img.style.width = '100%';
+                img.style.objectFit = 'cover';
+                
+                img.onload = () => {
+                    loadedCount++;
+                    updateGalleryStatus();
+                };
+                
+                img.onerror = () => {
+                    failedCount++;
+                    // Use canvas fallback
+                    if (window.createCanvasImages) {
+                        const canvasImages = window.createCanvasImages();
+                        img.src = canvasImages[index] || 'https://via.placeholder.com/300x200/D4AF37/000000?text=Fallback';
+                    }
+                    updateGalleryStatus();
+                };
+                
+                col.appendChild(img);
+                gallery.appendChild(col);
+            });
+
+            function updateGalleryStatus() {
+                const total = testPosts.length;
+                const processed = loadedCount + failedCount;
+                
+                if (processed >= total) {
+                    const status = loadedCount > 0 
+                        ? `✅ ${loadedCount} loaded, ${failedCount} failed` 
+                        : '❌ All images failed';
+                    
+                    document.getElementById('gallery-status').innerHTML = status;
+                }
+            }
+        }
+
+        // Test canvas generation
+        function testCanvasGeneration() {
+            if (window.createCanvasImages) {
+                const canvasImages = window.createCanvasImages();
+                const container = document.getElementById('canvas-test');
+                
+                canvasImages.forEach((dataUrl, index) => {
+                    const col = document.createElement('div');
+                    col.className = 'col-lg-4 col-md-6 mb-3';
+                    
+                    const img = document.createElement('img');
+                    img.src = dataUrl;
+                    img.className = 'img-fluid';
+                    img.style.maxHeight = '150px';
+                    
+                    col.appendChild(img);
+                    container.appendChild(col);
+                });
+            }
+        }
+
+        // Run tests
+        testNavigation();
+        testInstagramGallery();
+        testCanvasGeneration();
+    </script>
+</body>
+</html>
