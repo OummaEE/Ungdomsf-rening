@@ -1,0 +1,62 @@
+/* 
+ * Logo Fix CSS - Ensure transparent background and proper display
+ */
+
+/* Force transparent background for logo container */
+.navbar-brand .logo-icon {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Ensure logo image has no background */
+.navbar-brand .logo-icon img {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    mix-blend-mode: normal !important;
+}
+
+/* Fix hero logo display */
+.hero-logo img {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Remove any potential white backgrounds from parent elements */
+.navbar-brand {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+.header .navbar-brand {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Ensure logo displays correctly on all screen sizes */
+@media (max-width: 768px) {
+    .navbar-brand .logo-icon {
+        background: transparent !important;
+        background-color: transparent !important;
+    }
+    
+    .navbar-brand .logo-icon img {
+        background: transparent !important;
+        background-color: transparent !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-brand .logo-icon {
+        background: transparent !important;
+        background-color: transparent !important;
+    }
+    
+    .navbar-brand .logo-icon img {
+        background: transparent !important;
+        background-color: transparent !important;
+    }
+}
