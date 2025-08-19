@@ -121,6 +121,18 @@ html {
     background: #fff;
 }
 
+.instagram-loading {
+    text-align: center;
+    padding: 40px 0;
+    color: #6c757d;
+}
+
+.instagram-loading .spinner-border {
+    width: 3rem;
+    height: 3rem;
+    color: #D4AF37 !important;
+}
+
 .gallery-item {
     position: relative;
     overflow: hidden;
@@ -351,80 +363,20 @@ html {
 </section>
 
 <!-- Instagram Gallery Section -->
-<section class="instagram-gallery">
+<section class="instagram-gallery" id="instagram-gallery-section">
 <div class="container">
 <div class="row">
 <div class="col-lg-12 text-center mb-5">
-<!-- Removed text, showing only photos -->
+<div class="instagram-loading" style="display: block;">
+<div class="spinner-border text-primary" role="status">
+<span class="visually-hidden">Laddar Instagram...</span>
+</div>
+<p class="mt-2">Laddar bilder från Instagram...</p>
+</div>
 </div>
 </div>
 <div class="row gallery-grid">
-<div class="col-lg-4 col-md-6 mb-4">
-<div class="gallery-item fade-in-up">
-<img src="https://via.placeholder.com/400x400/D4AF37/000000?text=M.S+Ungdomsf%C3%B6rening+Event" alt="M.S Event" class="img-fluid">
-<div class="gallery-overlay">
-<a href="https://www.instagram.com/m.sungdomsforening/" target="_blank" class="gallery-link">
-<i class="fab fa-instagram"></i>
-<span>Se på Instagram</span>
-</a>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-6 mb-4">
-<div class="gallery-item fade-in-up" style="animation-delay: 0.2s;">
-<img src="https://via.placeholder.com/400x400/D4AF37/000000?text=Ungdomsaktivitet" alt="Ungdomsaktivitet" class="img-fluid">
-<div class="gallery-overlay">
-<a href="https://www.instagram.com/m.sungdomsforening/" target="_blank" class="gallery-link">
-<i class="fab fa-instagram"></i>
-<span>Se på Instagram</span>
-</a>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-6 mb-4">
-<div class="gallery-item fade-in-up" style="animation-delay: 0.4s;">
-<img src="https://via.placeholder.com/400x400/D4AF37/000000?text=Gemenskap" alt="Gemenskap" class="img-fluid">
-<div class="gallery-overlay">
-<a href="https://www.instagram.com/m.sungdomsforening/" target="_blank" class="gallery-link">
-<i class="fab fa-instagram"></i>
-<span>Se på Instagram</span>
-</a>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-6 mb-4">
-<div class="gallery-item fade-in-up" style="animation-delay: 0.6s;">
-<img src="https://via.placeholder.com/400x400/D4AF37/000000?text=Sport" alt="Sport Event" class="img-fluid">
-<div class="gallery-overlay">
-<a href="https://www.instagram.com/m.sungdomsforening/" target="_blank" class="gallery-link">
-<i class="fab fa-instagram"></i>
-<span>Se på Instagram</span>
-</a>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-6 mb-4">
-<div class="gallery-item fade-in-up" style="animation-delay: 0.8s;">
-<img src="https://via.placeholder.com/400x400/D4AF37/000000?text=Utbildning" alt="Utbildning" class="img-fluid">
-<div class="gallery-overlay">
-<a href="https://www.instagram.com/m.sungdomsforening/" target="_blank" class="gallery-link">
-<i class="fab fa-instagram"></i>
-<span>Se på Instagram</span>
-</a>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-6 mb-4">
-<div class="gallery-item fade-in-up" style="animation-delay: 1.0s;">
-<img src="https://via.placeholder.com/400x400/D4AF37/000000?text=Kreativitet" alt="Kreativitet" class="img-fluid">
-<div class="gallery-overlay">
-<a href="https://www.instagram.com/m.sungdomsforening/" target="_blank" class="gallery-link">
-<i class="fab fa-instagram"></i>
-<span>Se på Instagram</span>
-</a>
-</div>
-</div>
-</div>
+<!-- Instagram posts will be loaded here by JavaScript -->
 </div>
 <div class="row">
 <div class="col-12 text-center mt-4">
@@ -642,6 +594,8 @@ M.S Ungdomsförening är en ideell organisation som arbetar för att stödja ung
 <script defer="True" src="js/jquery.validate.min.js"></script>
 <script defer="True" src="js/jquery.appear.min.js"></script>
 <script defer="True" src="js/odometer.min.js"></script>
+<!-- Instagram Feed -->
+<script defer="True" src="js/simple-instagram.js"></script>
 <!-- Custom JavaScript -->
 <script defer="True" src="js/main.js"></script>
 </body>
