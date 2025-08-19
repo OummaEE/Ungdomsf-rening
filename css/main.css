@@ -52,7 +52,6 @@
 }
 
 :root {
-    --header-h: 72px;
     --ms-font: "Archivo", sans-serif;
     --ms-font-two: "Titillium Web", sans-serif;
     --ms-gold: #D4AF37;
@@ -72,8 +71,6 @@
 }
 
 body {
-    padding-top: var(--header-h);
-    padding-bottom: env(safe-area-inset-bottom,0px);
     font-family: var(--ms-font);
     line-height: 1.6;
     color: var(--ms-black);
@@ -1134,10 +1131,3 @@ html {
         padding: 15px;
     }
 }
-
-/* mobile hero fix */
-@media (max-width: 991.98px){
-  .hero{ background-attachment: scroll; }
-}
-@media (min-width: 768px){ :root{ --header-h: 80px; } }
-@media (min-width: 1200px){ :root{ --header-h: 96px; } }
