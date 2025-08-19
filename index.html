@@ -16,6 +16,7 @@
 <link href="css/main.min.css" rel="stylesheet"/>
 <link href="css/main-mobile-fix.css" rel="stylesheet"/>
 <link href="css/logo-fix.css" rel="stylesheet"/>
+<link href="css/desktop-fix.css" rel="stylesheet"/>
 <meta content="Vi hjälper ungdomar i Nyköping att växa och utvecklas genom gemenskap, stöd och meningsfulla aktiviteter. Tillsammans skapar vi möjligheter för framtiden." name="description"/>
 <style>
 *{box-sizing:border-box}
@@ -71,6 +72,193 @@ html {
     }
     body {
         padding-top: 65px !important;
+    }
+}
+
+/* Social Media Section Styles */
+.social-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #333;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    color: #007bff;
+    border-color: #007bff;
+}
+
+.social-link i {
+    font-size: 18px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Instagram Gallery Styles */
+.instagram-gallery {
+    padding: 80px 0;
+    background: #fff;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,123,255,0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-link {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.gallery-link i {
+    font-size: 24px;
+}
+
+/* About Section Styles */
+.about-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+}
+
+.stats-row {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Footer Enhancements */
+.footer {
+    background: #1a1a1a;
+    color: white;
+    padding: 60px 0 20px;
+}
+
+.footer h5 {
+    color: #ffd700;
+    margin-bottom: 20px;
+}
+
+.footer-logo-img {
+    max-width: 80px;
+    height: auto;
+}
+
+.footer-social {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #007bff;
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.footer-social a:hover {
+    background: #ffd700;
+    color: #333;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .social-links {
+        gap: 15px;
+    }
+    
+    .social-link {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    
+    .stats-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .gallery-grid {
+        margin: 0 -10px;
+    }
+    
+    .gallery-grid > div {
+        padding: 0 10px;
     }
 }
 </style></head>
@@ -140,11 +328,190 @@ html {
 </div>
 </div>
 </section>
+<!-- Social Media Section -->
+<section class="social-section">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-lg-8 text-center">
+<h2 class="fade-in-up">Följ oss på sociala medier</h2>
+<p class="fade-in-up" style="animation-delay: 0.2s;">Håll koll på våra senaste aktiviteter och uppdateringar</p>
+<div class="social-links fade-in-up" style="animation-delay: 0.4s;">
+<a href="https://www.facebook.com/avungaforunga" class="social-link" target="_blank" rel="noopener">
+<i class="fab fa-facebook-f"></i>
+<span>Facebook</span>
+</a>
+<a href="https://www.instagram.com/avunga_forunga" class="social-link" target="_blank" rel="noopener">
+<i class="fab fa-instagram"></i>
+<span>Instagram</span>
+</a>
+<a href="https://www.tiktok.com/@avungaforunga" class="social-link" target="_blank" rel="noopener">
+<i class="fab fa-tiktok"></i>
+<span>TikTok</span>
+</a>
+<a href="https://www.youtube.com/@avungaforunga" class="social-link" target="_blank" rel="noopener">
+<i class="fab fa-youtube"></i>
+<span>YouTube</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Instagram Gallery Section -->
+<section class="instagram-gallery">
+<div class="container">
+<div class="row">
+<div class="col-lg-12 text-center mb-5">
+<h2 class="fade-in-up">Instagram Galleri</h2>
+<p class="fade-in-up" style="animation-delay: 0.2s;">Se våra senaste bilder och aktiviteter från Instagram</p>
+</div>
+</div>
+<div class="row gallery-grid">
+<div class="col-lg-4 col-md-6 mb-4">
+<div class="gallery-item fade-in-up">
+<img src="https://via.placeholder.com/400x400/FFD700/000000?text=AVUNGA+Event" alt="AVUNGA Event" class="img-fluid">
+<div class="gallery-overlay">
+<a href="https://www.instagram.com/p/example1" target="_blank" class="gallery-link">
+<i class="fab fa-instagram"></i>
+<span>Se på Instagram</span>
+</a>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4">
+<div class="gallery-item fade-in-up" style="animation-delay: 0.2s;">
+<img src="https://via.placeholder.com/400x400/FFD700/000000?text=Ungdomsaktivitet" alt="Ungdomsaktivitet" class="img-fluid">
+<div class="gallery-overlay">
+<a href="https://www.instagram.com/p/example2" target="_blank" class="gallery-link">
+<i class="fab fa-instagram"></i>
+<span>Se på Instagram</span>
+</a>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4">
+<div class="gallery-item fade-in-up" style="animation-delay: 0.4s;">
+<img src="https://via.placeholder.com/400x400/FFD700/000000?text=Gemenskap" alt="Gemenskap" class="img-fluid">
+<div class="gallery-overlay">
+<a href="https://www.instagram.com/p/example3" target="_blank" class="gallery-link">
+<i class="fab fa-instagram"></i>
+<span>Se på Instagram</span>
+</a>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4">
+<div class="gallery-item fade-in-up" style="animation-delay: 0.6s;">
+<img src="https://via.placeholder.com/400x400/FFD700/000000?text=Sport+Event" alt="Sport Event" class="img-fluid">
+<div class="gallery-overlay">
+<a href="https://www.instagram.com/p/example4" target="_blank" class="gallery-link">
+<i class="fab fa-instagram"></i>
+<span>Se på Instagram</span>
+</a>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4">
+<div class="gallery-item fade-in-up" style="animation-delay: 0.8s;">
+<img src="https://via.placeholder.com/400x400/FFD700/000000?text=Utbildning" alt="Utbildning" class="img-fluid">
+<div class="gallery-overlay">
+<a href="https://www.instagram.com/p/example5" target="_blank" class="gallery-link">
+<i class="fab fa-instagram"></i>
+<span>Se på Instagram</span>
+</a>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4">
+<div class="gallery-item fade-in-up" style="animation-delay: 1.0s;">
+<img src="https://via.placeholder.com/400x400/FFD700/000000?text=Kreativitet" alt="Kreativitet" class="img-fluid">
+<div class="gallery-overlay">
+<a href="https://www.instagram.com/p/example6" target="_blank" class="gallery-link">
+<i class="fab fa-instagram"></i>
+<span>Se på Instagram</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-12 text-center mt-4">
+<a href="https://www.instagram.com/avunga_forunga" class="btn btn-outline-primary btn-lg" target="_blank" rel="noopener">
+<i class="fab fa-instagram me-2"></i>Följ oss på Instagram
+</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- About Section -->
+<section class="about-section">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-lg-6">
+<div class="about-content">
+<h2 class="fade-in-up">Vem vi är</h2>
+<p class="fade-in-up" style="animation-delay: 0.2s;">
+M.S Ungdomsförening är en ideell organisation som arbetar för att stödja ungdomar i Nyköping och omgivning. Vi tror på kraften i gemenskap och skapar möjligheter för unga människor att växa, lära och utvecklas tillsammans.
+</p>
+<div class="stats-row fade-in-up" style="animation-delay: 0.4s;">
+<div class="stat-item">
+<div class="stat-number counter" data-target="150">0</div>
+<div class="stat-label">Aktiva Medlemmar</div>
+</div>
+<div class="stat-item">
+<div class="stat-number counter" data-target="25">0</div>
+<div class="stat-label">Aktiviteter per År</div>
+</div>
+<div class="stat-item">
+<div class="stat-number counter" data-target="5">0</div>
+<div class="stat-label">År av Service</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-6">
+<div class="about-image fade-in-up" style="animation-delay: 0.6s;">
+<img src="image/optimized/logo.webp" alt="AVUNGA För Unga" class="img-fluid">
+</div>
+</div>
+</div>
+</div>
+</section>
+
 <!-- Footer -->
 <footer class="footer">
 <div class="container">
+<div class="row">
+<div class="col-lg-4">
+<div class="footer-logo">
+<img src="image/optimized/logo.webp" alt="AVUNGA Logo" class="footer-logo-img">
+<p class="mt-3">Av unga för unga - tillsammans skapar vi möjligheter för framtiden.</p>
+</div>
+</div>
+<div class="col-lg-4">
+<h5>Kontakt</h5>
+<p><i class="fas fa-map-marker-alt"></i> Nyköping, Sverige</p>
+<p><i class="fas fa-envelope"></i> info@avungaforunga.se</p>
+<p><i class="fas fa-phone"></i> +46 70 123 45 67</p>
+</div>
+<div class="col-lg-4">
+<h5>Följ oss</h5>
+<div class="footer-social">
+<a href="https://www.facebook.com/avungaforunga" target="_blank"><i class="fab fa-facebook-f"></i></a>
+<a href="https://www.instagram.com/avunga_forunga" target="_blank"><i class="fab fa-instagram"></i></a>
+<a href="https://www.tiktok.com/@avungaforunga" target="_blank"><i class="fab fa-tiktok"></i></a>
+<a href="https://www.youtube.com/@avungaforunga" target="_blank"><i class="fab fa-youtube"></i></a>
+</div>
+</div>
+</div>
+<div class="row mt-4">
+<div class="col-12 text-center">
 <a class="btn btn-primary btn-lg" href="contact.html">Kontakta oss</a>
-<p class="footer-copyright">© 2025 M.S Ungdomsförening. Alla rättigheter förbehållna.</p>
+<p class="footer-copyright mt-3">© 2025 M.S Ungdomsförening. Alla rättigheter förbehållna.</p>
+</div>
+</div>
 </div>
 </footer>
 <!-- Scripts -->
