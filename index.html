@@ -245,6 +245,126 @@ html {
     color: #333;
 }
 
+/* 3D Gallery Styles */
+.gallery-3d-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery-3d-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.section-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffd700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 50px;
+}
+
+.gallery-3d-container {
+    perspective: 1200px;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.gallery-3d {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    transform-style: preserve-3d;
+    animation: rotate3d 20s infinite linear;
+}
+
+@keyframes rotate3d {
+    0% { transform: rotateY(0deg) rotateX(10deg); }
+    100% { transform: rotateY(360deg) rotateX(10deg); }
+}
+
+.gallery-item-3d {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-item-3d:hover {
+    transform: scale(1.1);
+    box-shadow: 0 20px 50px rgba(212, 175, 55, 0.3);
+}
+
+.gallery-item-3d img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.gallery-item-3d:hover img {
+    filter: brightness(1.2) contrast(1.1);
+}
+
+/* Position each image in 3D space */
+.gallery-item-3d:nth-child(1) { transform: rotateY(0deg) translateZ(250px); }
+.gallery-item-3d:nth-child(2) { transform: rotateY(30deg) translateZ(250px); }
+.gallery-item-3d:nth-child(3) { transform: rotateY(60deg) translateZ(250px); }
+.gallery-item-3d:nth-child(4) { transform: rotateY(90deg) translateZ(250px); }
+.gallery-item-3d:nth-child(5) { transform: rotateY(120deg) translateZ(250px); }
+.gallery-item-3d:nth-child(6) { transform: rotateY(150deg) translateZ(250px); }
+.gallery-item-3d:nth-child(7) { transform: rotateY(180deg) translateZ(250px); }
+.gallery-item-3d:nth-child(8) { transform: rotateY(210deg) translateZ(250px); }
+.gallery-item-3d:nth-child(9) { transform: rotateY(240deg) translateZ(250px); }
+.gallery-item-3d:nth-child(10) { transform: rotateY(270deg) translateZ(250px); }
+.gallery-item-3d:nth-child(11) { transform: rotateY(300deg) translateZ(250px); }
+.gallery-item-3d:nth-child(12) { transform: rotateY(330deg) translateZ(250px); }
+
+/* Pause animation on hover */
+.gallery-3d:hover {
+    animation-play-state: paused;
+}
+
+/* Add glow effect */
+.gallery-item-3d::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ffd700, #007bff, #ffd700);
+    border-radius: 17px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item-3d:hover::after {
+    opacity: 0.7;
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .social-links {
@@ -272,6 +392,70 @@ html {
     .gallery-grid > div {
         padding: 0 10px;
     }
+    
+    .gallery-3d-section {
+        padding: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .gallery-3d-container {
+        height: 400px;
+    }
+    
+    .gallery-3d {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .gallery-item-3d {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .gallery-item-3d:nth-child(1) { transform: rotateY(0deg) translateZ(180px); }
+    .gallery-item-3d:nth-child(2) { transform: rotateY(30deg) translateZ(180px); }
+    .gallery-item-3d:nth-child(3) { transform: rotateY(60deg) translateZ(180px); }
+    .gallery-item-3d:nth-child(4) { transform: rotateY(90deg) translateZ(180px); }
+    .gallery-item-3d:nth-child(5) { transform: rotateY(120deg) translateZ(180px); }
+    .gallery-item-3d:nth-child(6) { transform: rotateY(150deg) translateZ(180px); }
+    .gallery-item-3d:nth-child(7) { transform: rotateY(180deg) translateZ(180px); }
+    .gallery-item-3d:nth-child(8) { transform: rotateY(210deg) translateZ(180px); }
+    .gallery-item-3d:nth-child(9) { transform: rotateY(240deg) translateZ(180px); }
+    .gallery-item-3d:nth-child(10) { transform: rotateY(270deg) translateZ(180px); }
+    .gallery-item-3d:nth-child(11) { transform: rotateY(300deg) translateZ(180px); }
+    .gallery-item-3d:nth-child(12) { transform: rotateY(330deg) translateZ(180px); }
+}
+
+@media (max-width: 480px) {
+    .gallery-3d-container {
+        height: 300px;
+    }
+    
+    .gallery-3d {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .gallery-item-3d {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .gallery-item-3d:nth-child(1) { transform: rotateY(0deg) translateZ(140px); }
+    .gallery-item-3d:nth-child(2) { transform: rotateY(30deg) translateZ(140px); }
+    .gallery-item-3d:nth-child(3) { transform: rotateY(60deg) translateZ(140px); }
+    .gallery-item-3d:nth-child(4) { transform: rotateY(90deg) translateZ(140px); }
+    .gallery-item-3d:nth-child(5) { transform: rotateY(120deg) translateZ(140px); }
+    .gallery-item-3d:nth-child(6) { transform: rotateY(150deg) translateZ(140px); }
+    .gallery-item-3d:nth-child(7) { transform: rotateY(180deg) translateZ(140px); }
+    .gallery-item-3d:nth-child(8) { transform: rotateY(210deg) translateZ(140px); }
+    .gallery-item-3d:nth-child(9) { transform: rotateY(240deg) translateZ(140px); }
+    .gallery-item-3d:nth-child(10) { transform: rotateY(270deg) translateZ(140px); }
+    .gallery-item-3d:nth-child(11) { transform: rotateY(300deg) translateZ(140px); }
+    .gallery-item-3d:nth-child(12) { transform: rotateY(330deg) translateZ(140px); }
 }
 </style></head>
 <body>
@@ -361,9 +545,127 @@ html {
 </div>
 </section>
 
-
-
-
+<!-- Gallery Grid Section -->
+<section class="gallery-grid-section">
+<div class="container">
+<div class="row">
+<div class="col-12 text-center mb-5">
+<h2 class="section-title">Våra Minnen</h2>
+<p class="section-subtitle">Upptäck våra aktiviteter och gemenskap genom bilder</p>
+</div>
+</div>
+<div class="gallery-grid">
+<div class="gallery-item">
+<img src="image/1.jpg" alt="Aktivitet 1" loading="lazy">
+<div class="gallery-overlay">
+<div class="gallery-content">
+<h4>Aktivitet 1</h4>
+<p>Våra ungdomar i aktion</p>
+</div>
+</div>
+</div>
+<div class="gallery-item">
+<img src="image/2.jpg" alt="Aktivitet 2" loading="lazy">
+<div class="gallery-overlay">
+<div class="gallery-content">
+<h4>Aktivitet 2</h4>
+<p>Gemenskap och utveckling</p>
+</div>
+</div>
+</div>
+<div class="gallery-item">
+<img src="image/3.jpg" alt="Aktivitet 3" loading="lazy">
+<div class="gallery-overlay">
+<div class="gallery-content">
+<h4>Aktivitet 3</h4>
+<p>Tillsammans skapar vi minnen</p>
+</div>
+</div>
+</div>
+<div class="gallery-item">
+<img src="image/4.jpg" alt="Aktivitet 4" loading="lazy">
+<div class="gallery-overlay">
+<div class="gallery-content">
+<h4>Aktivitet 4</h4>
+<p>Kreativitet och innovation</p>
+</div>
+</div>
+</div>
+<div class="gallery-item">
+<img src="image/5.jpg" alt="Aktivitet 5" loading="lazy">
+<div class="gallery-overlay">
+<div class="gallery-content">
+<h4>Aktivitet 5</h4>
+<p>Lärande genom lek</p>
+</div>
+</div>
+</div>
+<div class="gallery-item">
+<img src="image/6.jpg" alt="Aktivitet 6" loading="lazy">
+<div class="gallery-overlay">
+<div class="gallery-content">
+<h4>Aktivitet 6</h4>
+<p>Vänskap och samarbete</p>
+</div>
+</div>
+</div>
+<div class="gallery-item">
+<img src="image/7.jpg" alt="Aktivitet 7" loading="lazy">
+<div class="gallery-overlay">
+<div class="gallery-content">
+<h4>Aktivitet 7</h4>
+<p>Utmaningar och framgång</p>
+</div>
+</div>
+</div>
+<div class="gallery-item">
+<img src="image/8.jpg" alt="Aktivitet 8" loading="lazy">
+<div class="gallery-overlay">
+<div class="gallery-content">
+<h4>Aktivitet 8</h4>
+<p>Personlig utveckling</p>
+</div>
+</div>
+</div>
+<div class="gallery-item">
+<img src="image/9.jpg" alt="Aktivitet 9" loading="lazy">
+<div class="gallery-overlay">
+<div class="gallery-content">
+<h4>Aktivitet 9</h4>
+<p>Teamwork och glädje</p>
+</div>
+</div>
+</div>
+<div class="gallery-item">
+<img src="image/10.jpg" alt="Aktivitet 10" loading="lazy">
+<div class="gallery-overlay">
+<div class="gallery-content">
+<h4>Aktivitet 10</h4>
+<p>Inspiration och motivation</p>
+</div>
+</div>
+</div>
+<div class="gallery-item">
+<img src="image/11.jpg" alt="Aktivitet 11" loading="lazy">
+<div class="gallery-overlay">
+<div class="gallery-content">
+<h4>Aktivitet 11</h4>
+<p>Nya vänskap och upplevelser</p>
+</div>
+</div>
+</div>
+<div class="gallery-item">
+<img src="image/12.jpg" alt="Aktivitet 12" loading="lazy">
+<div class="gallery-overlay">
+<div class="gallery-content">
+<h4>Aktivitet 12</h4>
+<p>Framtiden börjar här</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 
 <!-- Footer -->
 <footer class="footer">
@@ -506,6 +808,104 @@ html {
             duration: 1000,
             once: true,
             offset: 100
+        });
+
+        // 3D Gallery interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            const gallery3d = document.querySelector('.gallery-3d');
+            const galleryItems = document.querySelectorAll('.gallery-item-3d');
+            let isRotating = true;
+            let rotationSpeed = 20; // seconds for full rotation
+
+            // Add click functionality to gallery items
+            galleryItems.forEach((item, index) => {
+                item.addEventListener('click', function() {
+                    // Pause rotation
+                    gallery3d.style.animationPlayState = 'paused';
+                    isRotating = false;
+                    
+                    // Calculate rotation to bring clicked item to front
+                    const targetRotation = -(index * 30); // 30 degrees per item
+                    gallery3d.style.transform = `rotateY(${targetRotation}deg) rotateX(10deg)`;
+                    
+                    // Add active class for special styling
+                    galleryItems.forEach(i => i.classList.remove('active'));
+                    item.classList.add('active');
+                    
+                    // Resume rotation after 3 seconds
+                    setTimeout(() => {
+                        gallery3d.style.animationPlayState = 'running';
+                        item.classList.remove('active');
+                        isRotating = true;
+                    }, 3000);
+                });
+
+                // Add hover effects
+                item.addEventListener('mouseenter', function() {
+                    if (isRotating) {
+                        gallery3d.style.animationPlayState = 'paused';
+                    }
+                });
+
+                item.addEventListener('mouseleave', function() {
+                    if (isRotating) {
+                        gallery3d.style.animationPlayState = 'running';
+                    }
+                });
+            });
+
+            // Add mouse control for manual rotation
+            let isDragging = false;
+            let startX = 0;
+            let currentRotation = 0;
+
+            gallery3d.addEventListener('mousedown', function(e) {
+                isDragging = true;
+                startX = e.clientX;
+                gallery3d.style.animationPlayState = 'paused';
+                gallery3d.style.cursor = 'grabbing';
+            });
+
+            document.addEventListener('mousemove', function(e) {
+                if (!isDragging) return;
+                
+                const deltaX = e.clientX - startX;
+                const rotationDelta = deltaX * 0.5; // Adjust sensitivity
+                gallery3d.style.transform = `rotateY(${currentRotation + rotationDelta}deg) rotateX(10deg)`;
+            });
+
+            document.addEventListener('mouseup', function() {
+                if (!isDragging) return;
+                
+                isDragging = false;
+                gallery3d.style.cursor = 'grab';
+                
+                // Resume automatic rotation after 2 seconds
+                setTimeout(() => {
+                    gallery3d.style.animationPlayState = 'running';
+                }, 2000);
+            });
+
+            // Touch support for mobile
+            let startTouch = 0;
+            
+            gallery3d.addEventListener('touchstart', function(e) {
+                startTouch = e.touches[0].clientX;
+                gallery3d.style.animationPlayState = 'paused';
+            });
+
+            gallery3d.addEventListener('touchmove', function(e) {
+                e.preventDefault();
+                const deltaX = e.touches[0].clientX - startTouch;
+                const rotationDelta = deltaX * 0.5;
+                gallery3d.style.transform = `rotateY(${currentRotation + rotationDelta}deg) rotateX(10deg)`;
+            });
+
+            gallery3d.addEventListener('touchend', function() {
+                setTimeout(() => {
+                    gallery3d.style.animationPlayState = 'running';
+                }, 2000);
+            });
         });
     </script>
 <!-- Core Libraries -->
