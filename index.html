@@ -64,6 +64,13 @@ html {
         min-height: calc(100vh - 70px) !important;
         background-attachment: scroll !important;
     }
+    .hero-logo {
+        display: none !important;
+    }
+    .col-lg-8 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
 }
 @media (max-width: 575.98px) {
     .container, .container-fluid {
@@ -71,7 +78,17 @@ html {
         padding-right: 10px !important;
     }
     body {
-        padding-top: 65px !important;
+        padding-top: 60px !important;
+    }
+    .hero {
+        min-height: calc(100vh - 60px) !important;
+        padding: 40px 0 !important;
+    }
+    .hero-content h1 {
+        font-size: 2rem !important;
+    }
+    .hero-content p {
+        font-size: 1rem !important;
     }
 }
 
@@ -247,25 +264,13 @@ html {
 
 /* Gallery Grid Styles */
 .gallery-grid-section {
-    padding: 100px 0;
+    padding: 80px 0;
     background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     position: relative;
-    overflow: hidden;
-}
-
-.gallery-grid-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
-    pointer-events: none;
 }
 
 .section-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
     color: #ffd700;
     margin-bottom: 20px;
@@ -273,66 +278,39 @@ html {
 }
 
 .section-subtitle {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #ccc;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 0 20px;
 }
 
 .gallery-item {
     position: relative;
     aspect-ratio: 1;
-    border-radius: 20px;
+    border-radius: 15px;
     overflow: hidden;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    background: linear-gradient(45deg, #2a2a2a, #1a1a1a);
-}
-
-.gallery-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, #ffd700, #007bff, #ffd700, #28a745);
-    background-size: 400% 400%;
-    border-radius: 20px;
-    padding: 3px;
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    animation: gradientShift 3s ease infinite;
-}
-
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-.gallery-item:hover::before {
-    opacity: 1;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 .gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border-radius: 17px;
+    transition: transform 0.3s ease;
 }
 
 .gallery-item:hover img {
-    transform: scale(1.1);
-    filter: brightness(1.2) contrast(1.1) saturate(1.2);
+    transform: scale(1.05);
 }
 
 .gallery-overlay {
@@ -341,13 +319,12 @@ html {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(0, 123, 255, 0.9), rgba(212, 175, 55, 0.9));
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.8), rgba(212, 175, 55, 0.8));
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border-radius: 17px;
+    transition: opacity 0.3s ease;
 }
 
 .gallery-item:hover .gallery-overlay {
@@ -357,51 +334,24 @@ html {
 .gallery-content {
     text-align: center;
     color: white;
-    transform: translateY(20px);
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.gallery-item:hover .gallery-content {
-    transform: translateY(0);
+    padding: 20px;
 }
 
 .gallery-content h4 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 8px;
 }
 
 .gallery-content p {
-    font-size: 1rem;
-    opacity: 0.9;
+    font-size: 0.9rem;
     margin: 0;
-}
-
-/* Staggered animation on scroll */
-.gallery-item:nth-child(1) { animation-delay: 0.1s; }
-.gallery-item:nth-child(2) { animation-delay: 0.2s; }
-.gallery-item:nth-child(3) { animation-delay: 0.3s; }
-.gallery-item:nth-child(4) { animation-delay: 0.4s; }
-.gallery-item:nth-child(5) { animation-delay: 0.5s; }
-.gallery-item:nth-child(6) { animation-delay: 0.6s; }
-.gallery-item:nth-child(7) { animation-delay: 0.7s; }
-.gallery-item:nth-child(8) { animation-delay: 0.8s; }
-.gallery-item:nth-child(9) { animation-delay: 0.9s; }
-.gallery-item:nth-child(10) { animation-delay: 1.0s; }
-.gallery-item:nth-child(11) { animation-delay: 1.1s; }
-.gallery-item:nth-child(12) { animation-delay: 1.2s; }
-
-/* Hover effects for neighboring items */
-.gallery-grid:hover .gallery-item:not(:hover) {
-    transform: scale(0.95);
-    opacity: 0.7;
+    opacity: 0.9;
 }
 
 .gallery-item:hover {
-    transform: scale(1.05) translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    z-index: 10;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
 /* Responsive Adjustments */
@@ -572,7 +522,7 @@ html {
 <img src="image/1.jpg" alt="Aktivitet 1" loading="lazy">
 <div class="gallery-overlay">
 <div class="gallery-content">
-<h4>Aktivitet 1</h4>
+<h4>Gemenskap</h4>
 <p>Våra ungdomar i aktion</p>
 </div>
 </div>
@@ -581,8 +531,8 @@ html {
 <img src="image/2.jpg" alt="Aktivitet 2" loading="lazy">
 <div class="gallery-overlay">
 <div class="gallery-content">
-<h4>Aktivitet 2</h4>
-<p>Gemenskap och utveckling</p>
+<h4>Utveckling</h4>
+<p>Lärande och tillväxt</p>
 </div>
 </div>
 </div>
@@ -590,8 +540,8 @@ html {
 <img src="image/3.jpg" alt="Aktivitet 3" loading="lazy">
 <div class="gallery-overlay">
 <div class="gallery-content">
-<h4>Aktivitet 3</h4>
-<p>Tillsammans skapar vi minnen</p>
+<h4>Kreativitet</h4>
+<p>Skapande aktiviteter</p>
 </div>
 </div>
 </div>
@@ -599,8 +549,8 @@ html {
 <img src="image/4.jpg" alt="Aktivitet 4" loading="lazy">
 <div class="gallery-overlay">
 <div class="gallery-content">
-<h4>Aktivitet 4</h4>
-<p>Kreativitet och innovation</p>
+<h4>Teamwork</h4>
+<p>Tillsammans är vi starkare</p>
 </div>
 </div>
 </div>
@@ -608,71 +558,8 @@ html {
 <img src="image/5.jpg" alt="Aktivitet 5" loading="lazy">
 <div class="gallery-overlay">
 <div class="gallery-content">
-<h4>Aktivitet 5</h4>
-<p>Lärande genom lek</p>
-</div>
-</div>
-</div>
-<div class="gallery-item">
-<img src="image/6.jpg" alt="Aktivitet 6" loading="lazy">
-<div class="gallery-overlay">
-<div class="gallery-content">
-<h4>Aktivitet 6</h4>
-<p>Vänskap och samarbete</p>
-</div>
-</div>
-</div>
-<div class="gallery-item">
-<img src="image/7.jpg" alt="Aktivitet 7" loading="lazy">
-<div class="gallery-overlay">
-<div class="gallery-content">
-<h4>Aktivitet 7</h4>
-<p>Utmaningar och framgång</p>
-</div>
-</div>
-</div>
-<div class="gallery-item">
-<img src="image/8.jpg" alt="Aktivitet 8" loading="lazy">
-<div class="gallery-overlay">
-<div class="gallery-content">
-<h4>Aktivitet 8</h4>
-<p>Personlig utveckling</p>
-</div>
-</div>
-</div>
-<div class="gallery-item">
-<img src="image/9.jpg" alt="Aktivitet 9" loading="lazy">
-<div class="gallery-overlay">
-<div class="gallery-content">
-<h4>Aktivitet 9</h4>
-<p>Teamwork och glädje</p>
-</div>
-</div>
-</div>
-<div class="gallery-item">
-<img src="image/10.jpg" alt="Aktivitet 10" loading="lazy">
-<div class="gallery-overlay">
-<div class="gallery-content">
-<h4>Aktivitet 10</h4>
-<p>Inspiration och motivation</p>
-</div>
-</div>
-</div>
-<div class="gallery-item">
-<img src="image/11.jpg" alt="Aktivitet 11" loading="lazy">
-<div class="gallery-overlay">
-<div class="gallery-content">
-<h4>Aktivitet 11</h4>
-<p>Nya vänskap och upplevelser</p>
-</div>
-</div>
-</div>
-<div class="gallery-item">
-<img src="image/12.jpg" alt="Aktivitet 12" loading="lazy">
-<div class="gallery-overlay">
-<div class="gallery-content">
-<h4>Aktivitet 12</h4>
-<p>Framtiden börjar här</p>
+<h4>Framtid</h4>
+<p>Möjligheter för alla</p>
 </div>
 </div>
 </div>
