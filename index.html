@@ -301,6 +301,37 @@ html {
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
+    .simple-gallery-item {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .gallery-title {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .simple-gallery {
+        gap: 10px;
+        padding: 0 15px;
+    }
+    
+    .simple-gallery-item {
+        width: 130px;
+        height: 130px;
+    }
+    
+    .gallery-title {
+        font-size: 1.5rem;
+    }
+    
+    .gallery-section {
+        padding: 40px 0;
+    }
+}
+
+@media (max-width: 768px) {
     .social-links {
         gap: 15px;
     }
@@ -453,60 +484,25 @@ html {
 </div>
 </section>
 
-<!-- Gallery Grid Section -->
-<section class="gallery-grid-section">
+<!-- Simple Gallery Section -->
+<section class="gallery-section">
 <div class="container">
-<div class="row">
-<div class="col-12 text-center mb-5">
-<h2 class="section-title">Våra Minnen</h2>
-<p class="section-subtitle">Upptäck våra aktiviteter och gemenskap genom bilder</p>
+<h2 class="gallery-title">Våra Minnen</h2>
+<div class="simple-gallery">
+<div class="simple-gallery-item">
+<img src="image/1.jpg" alt="Aktivitet 1">
 </div>
+<div class="simple-gallery-item">
+<img src="image/2.jpg" alt="Aktivitet 2">
 </div>
-<div class="gallery-grid">
-<div class="gallery-item">
-<img src="image/1.jpg" alt="Aktivitet 1" loading="lazy">
-<div class="gallery-overlay">
-<div class="gallery-content">
-<h4>Gemenskap</h4>
-<p>Våra ungdomar i aktion</p>
+<div class="simple-gallery-item">
+<img src="image/3.jpg" alt="Aktivitet 3">
 </div>
+<div class="simple-gallery-item">
+<img src="image/4.jpg" alt="Aktivitet 4">
 </div>
-</div>
-<div class="gallery-item">
-<img src="image/2.jpg" alt="Aktivitet 2" loading="lazy">
-<div class="gallery-overlay">
-<div class="gallery-content">
-<h4>Utveckling</h4>
-<p>Lärande och tillväxt</p>
-</div>
-</div>
-</div>
-<div class="gallery-item">
-<img src="image/3.jpg" alt="Aktivitet 3" loading="lazy">
-<div class="gallery-overlay">
-<div class="gallery-content">
-<h4>Kreativitet</h4>
-<p>Skapande aktiviteter</p>
-</div>
-</div>
-</div>
-<div class="gallery-item">
-<img src="image/4.jpg" alt="Aktivitet 4" loading="lazy">
-<div class="gallery-overlay">
-<div class="gallery-content">
-<h4>Teamwork</h4>
-<p>Tillsammans är vi starkare</p>
-</div>
-</div>
-</div>
-<div class="gallery-item">
-<img src="image/5.jpg" alt="Aktivitet 5" loading="lazy">
-<div class="gallery-overlay">
-<div class="gallery-content">
-<h4>Framtid</h4>
-<p>Möjligheter för alla</p>
-</div>
-</div>
+<div class="simple-gallery-item">
+<img src="image/5.jpg" alt="Aktivitet 5">
 </div>
 </div>
 </div>
