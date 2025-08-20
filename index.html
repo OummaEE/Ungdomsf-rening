@@ -262,96 +262,41 @@ html {
     color: #333;
 }
 
-/* Gallery Grid Styles */
-.gallery-grid-section {
-    padding: 80px 0;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-    position: relative;
+/* Simple Gallery Styles */
+.gallery-section {
+    padding: 60px 0;
+    background: #f8f9fa;
 }
 
-.section-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #ffd700;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+.gallery-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
 }
 
-.section-subtitle {
-    font-size: 1.1rem;
-    color: #ccc;
-    margin-bottom: 40px;
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    max-width: 1200px;
+.simple-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-.gallery-item {
-    position: relative;
-    aspect-ratio: 1;
-    border-radius: 15px;
+.simple-gallery-item {
+    width: 180px;
+    height: 180px;
+    border-radius: 10px;
     overflow: hidden;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.gallery-item img {
+.simple-gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.gallery-item:hover img {
-    transform: scale(1.05);
-}
-
-.gallery-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(0, 123, 255, 0.8), rgba(212, 175, 55, 0.8));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.gallery-item:hover .gallery-overlay {
-    opacity: 1;
-}
-
-.gallery-content {
-    text-align: center;
-    color: white;
-    padding: 20px;
-}
-
-.gallery-content h4 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 8px;
-}
-
-.gallery-content p {
-    font-size: 0.9rem;
-    margin: 0;
-    opacity: 0.9;
-}
-
-.gallery-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
 /* Responsive Adjustments */
