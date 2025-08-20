@@ -10,11 +10,13 @@
 <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800&amp;family=Titillium+Web:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.theme.default.min.css" rel="stylesheet"/>
 <!-- Custom CSS -->
 <link href="css/main.min.css" rel="stylesheet"/>
+<link href="css/main-mobile-fix.css" rel="stylesheet"/>
 <link href="css/logo-fix.css" rel="stylesheet"/>
 <link href="css/desktop-fix.css" rel="stylesheet"/>
-<link href="css/main-mobile-fix.css" rel="stylesheet"/>
 <meta content="Har du frågor eller vill bli medlem? Vi finns här för dig!" name="description"/><style>
 *{box-sizing:border-box}
 img{max-width:100%;height:auto}
@@ -26,14 +28,24 @@ html, body {
     overflow-x: hidden !important;
     -webkit-overflow-scrolling: touch;
 }
+/* CRITICAL: Add padding for fixed header */
+body {
+    padding-top: 80px !important;
+}
 /* Prevent zoom on form inputs */
 input, select, textarea {
     font-size: 16px !important;
 }
 /* Fix for iOS Safari address bar */
 .hero {
-    min-height: 100vh !important;
+    min-height: calc(100vh - 80px) !important;
     min-height: -webkit-fill-available !important;
+    display: flex !important;
+    align-items: center !important;
+    background: linear-gradient(rgba(44, 44, 44, 0.7), rgba(26, 26, 26, 0.7)), url('image/optimized/hero-background.webp') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
 }
 html {
     height: -webkit-fill-available !important;
@@ -43,10 +55,74 @@ html {
     padding-left: 15px !important;
     padding-right: 15px !important;
 }
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px !important;
+    }
+    .hero {
+        min-height: calc(100vh - 70px) !important;
+        background-attachment: scroll !important;
+    }
+}
 @media (max-width: 575.98px) {
     .container, .container-fluid {
         padding-left: 10px !important;
         padding-right: 10px !important;
+    }
+    body {
+        padding-top: 65px !important;
+    }
+}
+
+/* Social Media Section Styles */
+.social-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #333;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    color: #007bff;
+    border-color: #007bff;
+}
+
+.social-link i {
+    font-size: 18px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .social-links {
+        gap: 15px;
+    }
+    
+    .social-link {
+        padding: 10px 15px;
+        font-size: 14px;
     }
 }
 </style></head>
@@ -60,7 +136,7 @@ html {
 <div class="container">
 <a class="navbar-brand" href="index.html">
 <div class="logo-icon">
-<img alt="AVUNGA FÖR UNGA Logo" decoding="async" loading="lazy" src="image/optimized/logo.webp"/>
+<img alt="M.S Ungdomsförening Logo" decoding="async" loading="lazy" src="image/logo.png"/>
 </div>
 </a>
 <button class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
@@ -99,16 +175,16 @@ html {
 <p class="fade-in-up">Har du frågor eller vill bli medlem? Vi finns här för dig!</p>
 </div>
 <div class="row">
-<div class="col-lg-4">
+<div class="col-lg-6">
 <div class="contact-card fade-in-up">
 <div class="contact-icon">
 <i class="fas fa-map-marker-alt"></i>
 </div>
 <h5>Adress</h5>
-<p>Brandkärr<br/>Nyköping, Sverige</p>
+<p>Brandkärr, Nyköping, Sverige</p>
 </div>
 </div>
-<div class="col-lg-4">
+<div class="col-lg-6">
 <div class="contact-card fade-in-up" style="animation-delay: 0.2s;">
 <div class="contact-icon">
 <i class="fas fa-envelope"></i>
@@ -117,16 +193,25 @@ html {
 <p>msforening.99@gmail.com</p>
 </div>
 </div>
-<div class="col-lg-4">
-<div class="contact-card fade-in-up" style="animation-delay: 0.4s;">
-<div class="contact-icon">
-<i class="fas fa-share-alt"></i>
-</div>
-<h5>Sociala Medier</h5>
-<p>Instagram: @m.sungdomsforening<br/>TikTok: @msungdomsforening</p>
-</div>
-</div>
-</div>
+<section class="social-section">
+    <div class="container">
+    <div class="row justify-content-center">
+    <div class="col-lg-8 text-center">
+    
+    <div class="social-links fade-in-up" style="animation-delay: 0.4s;">
+    <a href="https://www.facebook.com/profile.php?id=100075590843002" class="social-link" target="_blank" rel="noopener">
+    <i class="fab fa-facebook-f"></i>
+    <span>Facebook</span>
+    </a>
+    <a href="https://www.instagram.com/m.sungdomsforening/" class="social-link" target="_blank" rel="noopener">
+    <i class="fab fa-instagram"></i>
+    <span>Instagram</span>
+    </a>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
 <div class="row mt-5">
 <div class="col-lg-8 mx-auto">
 <div class="contact-card fade-in-up">
@@ -178,11 +263,120 @@ html {
 <p class="footer-copyright">© 2025 M.S Ungdomsförening. Alla rättigheter förbehållna.</p>
 </div>
 </footer>
+<!-- Scripts -->
+<script defer="True" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script defer="True" src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script defer="True" src="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/owl.carousel.min.js"></script>
+<script>
+        // Preloader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('fade-out');
+                setTimeout(() => {
+                    document.getElementById('preloader').style.display = 'none';
+                }, 500);
+            }, 1000);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active navigation link
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Tack för ditt meddelande! Vi kommer att kontakta dig så snart som möjligt.');
+            e.target.reset();
+        });
+
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
 <!-- Core Libraries -->
 <script defer="True" src="js/jquery-latest.js"></script>
-<script defer="True" src="js/bootstrap.bundle.min.js"></script>
-<script defer="True" src="js/aos.js"></script>
+
+<!-- Animation Libraries -->
+<script defer="True" src="js/gsap.js"></script>
+<script defer="True" src="js/ScrollTrigger.js"></script>
+<script defer="True" src="js/SplitText.js"></script>
+
+<script defer="True" src="js/wow.js"></script>
+<!-- UI Components -->
+
+<script defer="True" src="js/jquery.magnific-popup.min.js"></script>
+<script defer="True" src="js/isotope.js"></script>
+<!-- Form & Utilities -->
 <script defer="True" src="js/jquery.validate.min.js"></script>
+<script defer="True" src="js/jquery.appear.min.js"></script>
+<script defer="True" src="js/odometer.min.js"></script>
+<!-- Instagram Feed -->
+<script defer="True" src="js/create-local-images.js"></script>
+<script defer="True" src="js/simple-instagram.js"></script>
+<!-- Custom JavaScript -->
 <script defer="True" src="js/main.js"></script>
 </body>
 </html>
