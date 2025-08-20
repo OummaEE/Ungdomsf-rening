@@ -132,96 +132,6 @@ html {
     text-align: center;
 }
 
-/* Instagram Gallery Styles */
-.instagram-gallery {
-    padding: 80px 0;
-    background: #fff;
-}
-
-.instagram-loading {
-    text-align: center;
-    padding: 40px 0;
-    color: #6c757d;
-}
-
-.instagram-loading .spinner-border {
-    width: 3rem;
-    height: 3rem;
-    color: #D4AF37 !important;
-}
-
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
-
-.gallery-item:hover {
-    transform: translateY(-5px);
-}
-
-.gallery-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,123,255,0.9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.gallery-item:hover .gallery-overlay {
-    opacity: 1;
-}
-
-.gallery-link {
-    color: white;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 16px;
-    font-weight: 500;
-}
-
-.gallery-link i {
-    font-size: 24px;
-}
-
-/* About Section Styles */
-.about-section {
-    padding: 80px 0;
-    background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
-    color: #000;
-}
-
-.stats-row {
-    display: flex;
-    gap: 30px;
-    margin-top: 30px;
-}
-
-.stat-item {
-    text-align: center;
-}
-
-.stat-number {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #000;
-}
-
-.stat-label {
-    font-size: 0.9rem;
-    opacity: 0.9;
-}
-
 /* Footer Enhancements */
 .footer {
     background: #1a1a1a;
@@ -262,7 +172,7 @@ html {
     color: #333;
 }
 
-
+/* Responsive Adjustments */
 @media (max-width: 768px) {
     .social-links {
         gap: 15px;
@@ -271,61 +181,6 @@ html {
     .social-link {
         padding: 10px 15px;
         font-size: 14px;
-    }
-    
-    .stats-row {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    .stat-number {
-        font-size: 2rem;
-    }
-    
-    .gallery-grid-section {
-        padding: 60px 0;
-    }
-    
-    .section-title {
-        font-size: 2rem;
-    }
-    
-    .gallery-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 15px;
-        padding: 0 15px;
-    }
-    
-    .gallery-content h4 {
-        font-size: 1.3rem;
-    }
-    
-    .gallery-content p {
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .gallery-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 10px;
-        padding: 0 10px;
-    }
-    
-    .gallery-content h4 {
-        font-size: 1.1rem;
-    }
-    
-    .gallery-content p {
-        font-size: 0.8rem;
-    }
-    
-    .section-title {
-        font-size: 1.8rem;
-    }
-    
-    .section-subtitle {
-        font-size: 1rem;
     }
 }
 </style></head>
@@ -400,7 +255,6 @@ html {
 <div class="container">
 <div class="row justify-content-center">
 <div class="col-lg-8 text-center">
-
 <div class="social-links fade-in-up" style="animation-delay: 0.4s;">
 <a href="https://www.facebook.com/profile.php?id=100075590843002" class="social-link" target="_blank" rel="noopener">
 <i class="fab fa-facebook-f"></i>
@@ -415,7 +269,6 @@ html {
 </div>
 </div>
 </section>
-
 
 <!-- Footer -->
 <footer class="footer">
@@ -433,7 +286,6 @@ html {
 <p><i class="fas fa-envelope"></i> info@avungaforunga.se</p>
 <p><i class="fas fa-phone"></i> +46 70 123 45 67</p>
 </div>
-
 </div>
 <div class="row mt-4">
 <div class="col-12 text-center">
@@ -551,37 +403,11 @@ html {
             counterObserver.observe(counter);
         });
 
-        // Form submission - removed as no form exists in this page
-
         // Initialize AOS
         AOS.init({
             duration: 1000,
             once: true,
             offset: 100
-        });
-
-        // Gallery Grid interactions
-        document.addEventListener('DOMContentLoaded', function() {
-            const galleryItems = document.querySelectorAll('.gallery-item');
-            
-            // Add staggered animation on scroll
-            const galleryObserver = new IntersectionObserver((entries) => {
-                entries.forEach((entry, index) => {
-                    if (entry.isIntersecting) {
-                        setTimeout(() => {
-                            entry.target.style.opacity = '1';
-                            entry.target.style.transform = 'translateY(0)';
-                        }, index * 100);
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            galleryItems.forEach((item, index) => {
-                item.style.opacity = '0';
-                item.style.transform = 'translateY(30px)';
-                item.style.transition = 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-                galleryObserver.observe(item);
-            });
         });
     </script>
 <!-- Core Libraries -->
